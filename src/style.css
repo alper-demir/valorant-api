@@ -1,0 +1,36 @@
+i:hover, .nav-links a:hover {
+    opacity: 0.8;
+}
+
+.bg-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.blur {
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+.text {
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.detail-bg {
+    background: #ADA996;
+    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
+    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
+}
+
+@media screen and (max-width: 550px) {
+    .socials i {
+        display: none;
+    }
+}
