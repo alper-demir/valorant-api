@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 import WeaponPage from './WeaponPage';
 import Loading from './Loading';
 import NoFoundPage from './NoFoundPage';
+import MainContext from '../context/MainContext';
 
-const Weapons = ({ setLoading, loading, response, setResponse }) => {
+const Weapons = () => {
 
     const [weapon, setWeapon] = useState([])
-
+    const { setLoading, loading, response, setResponse } = useContext(MainContext)
     document.querySelector('title').textContent = 'Weapons'
 
 

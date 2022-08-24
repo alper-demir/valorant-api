@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 import MapPage from './MapPage'
 import Loading from './Loading'
 import NoFoundPage from './NoFoundPage';
+import MainContext from './../context/MainContext';
 
-const Maps = ({ loading, setLoading, response, setResponse }) => {
+const Maps = () => {
 
     const [maps, setMap] = useState([])
-
+    const { loading, setLoading, response, setResponse } = useContext(MainContext)
     document.querySelector('title').textContent = 'Maps'
 
     useEffect(() => {

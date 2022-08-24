@@ -8,6 +8,7 @@ import Weapons from './components/Weapons'
 import WeaponDetail from './components/WeaponDetail'
 import Maps from './components/Maps'
 import { useState } from 'react'
+import MainContext from "./context/MainContext";
 
 const App = () => {
 
@@ -15,19 +16,21 @@ const App = () => {
   const [response, setResponse] = useState(false)
 
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Homepage />}></Route>
-        <Route path="/agents" element={<Agents setLoading={setLoading} loading={loading} response={response} setResponse={setResponse} />} exact></Route>
-        <Route path="/weapons" element={<Weapons setLoading={setLoading} loading={loading} response={response} setResponse={setResponse} />}></Route>
-        <Route path="/maps" element={<Maps setLoading={setLoading} loading={loading} response={response} setResponse={setResponse} />}></Route>
-        <Route path="/agents/detail/:id" element={<AgentDetail setLoading={setLoading} loading={loading} response={response} setResponse={setResponse} />}></Route>
-        <Route path="/weapons/detail/:id" element={<WeaponDetail setLoading={setLoading} loading={loading} response={response} setResponse={setResponse} />}></Route>
-      </Routes>
+    <MainContext.Provider value={{ loading, setLoading, response, setResponse }}>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Homepage />}></Route>
+          <Route path="/agents" element={<Agents />} exact></Route>
+          <Route path="/weapons" element={<Weapons />}></Route>
+          <Route path="/maps" element={<Maps />}></Route>
+          <Route path="/agents/detail/:id" element={<AgentDetail />}></Route>
+          <Route path="/weapons/detail/:id" element={<WeaponDetail />}></Route>
+        </Routes>
 
-      <Footer />
-    </BrowserRouter>
+        <Footer />
+      </BrowserRouter>
+    </MainContext.Provider>
   );
 }
 

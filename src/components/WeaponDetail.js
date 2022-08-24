@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import "../style.css"
@@ -6,11 +6,13 @@ import Loading from './Loading'
 import WeaponDamage from './WeaponDamage';
 import WeaponStats from './WeaponStats'
 import NoFoundPage from './NoFoundPage'
+import MainContext from './../context/MainContext';
 
-const WeaponDetail = ({ setLoading, loading, setResponse, response }) => {
+const WeaponDetail = () => {
 
     const id = useParams()
     const [weapon, setweapon] = useState({})
+    const { setLoading, loading, setResponse, response } = useContext(MainContext)
     useEffect(() => {
         setLoading(true)
         axios.get(`https://valorant-api.com/v1/weapons/${id.id}`).then(res => {

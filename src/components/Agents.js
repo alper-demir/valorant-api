@@ -3,8 +3,11 @@ import axios from 'axios'
 import AgentPage from './AgentPage';
 import Loading from './Loading';
 import NoFoundPage from './NoFoundPage';
+import MainContext from '../context/MainContext';
+import { useContext } from 'react';
 
-const Agents = ({ setLoading, loading, response, setResponse }) => {
+const Agents = () => {
+    const { setLoading, loading, response, setResponse } = useContext(MainContext)
 
     document.querySelector('title').textContent = 'Agents'
 

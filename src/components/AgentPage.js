@@ -6,7 +6,7 @@ const AgentPage = (props) => {
     return (
         <div className="col-md-3">
             <div className="card mt-2 bg-light">
-                <img src={props.agent.fullPortraitV2} alt="Agent" className="card-img-top" />
+                <img src={props.agent.fullPortrait} alt="Agent" className="card-img-top" />
                 <div className="card-body">
                     <h5 className="card-title text-center">
                         {props.agent.displayName}

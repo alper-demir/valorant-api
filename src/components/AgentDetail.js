@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import "../style.css"
 import Loading from './Loading'
 import NoFoundPage from './NoFoundPage'
+import MainContext from './../context/MainContext';
 
-const AgentDetail = ({ setLoading, loading, response, setResponse }) => {
+const AgentDetail = () => {
     const id = useParams()
     const [agent, setAgent] = useState({})
-
+    const { setLoading, loading, response, setResponse } = useContext(MainContext)
     useEffect(() => {
         setLoading(true)
 
